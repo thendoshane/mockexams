@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analysis with Python - Mock Exam</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Use Inter font */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Custom styles for correct/incorrect feedback */
+        .question-block.correct {
+            background-color: #f0fdf4; /* green-50 */
+            border-color: #22c55e; /* green-500 */
+        }
+        
+        .question-block.incorrect {
+            background-color: #fef2f2; /* red-50 */
+            border-color: #ef4444; /* red-500 */
+        }
+        
+        /* Custom styles for input feedback */
+        input.correct {
+            border-color: #22c55e; /* green-500 */
+            background-color: #f0fdf4; /* green-50 */
+        }
+        
+        input.incorrect {
+            border-color: #ef4444; /* red-500 */
+            background-color: #fef2f2; /* red-50 */
+        }
+
+        /* Styles for the code block inputs */
+        pre input {
+            background-color: #374151; /* gray-700 */
+            color: #f9fafb; /* gray-50 */
+            border: 1px solid #9ca3af; /* gray-400 */
+            border-radius: 4px;
+            padding: 2px 4px;
+            margin: 0 4px;
+            width: 100px; /* Give a default width */
+        }
+        
+        pre input.correct {
+            border-color: #4ade80; /* green-400 */
+            background-color: #166534; /* green-800 */
+        }
+        
+        pre input.incorrect {
+            border-color: #f87171; /* red-400 */
+            background-color: #991b1b; /* red-800 */
+        }
+
+        /* Styles for label/text feedback */
+        .label-correct {
+            color: #166534; /* green-800 */
+            font-weight: 600;
+        }
+        
+        .label-incorrect {
+            color: #991b1b; /* red-800 */
+            font-weight: 600;
+            text-decoration: line-through;
+        }
+
+        .feedback-text {
+            font-style: italic;
+            font-weight: 600;
+            color: #166534; /* green-800 */
+        }
+        
+        .feedback-text-incorrect {
+            font-style: italic;
+            font-weight: 600;
+            color: #991b1b; /* red-800 */
+        }
+        
+        .code-feedback-correct {
+            color: #4ade80; /* green-400 */
+            font-style: italic;
+            margin-left: 8px;
+        }
+        
+        .code-feedback-incorrect {
+            color: #f87171; /* red-400 */
+            font-style: italic;
+            margin-left: 8px;
+        }
+
+        /* Offset for sticky nav */
+        .section-header {
+            scroll-margin-top: 5rem; /* Adjust based on nav height */
+        }
+    </style>
+    <!-- Preload Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+    <!-- Sticky Navigation -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <span class="font-bold text-lg text-blue-700">ITAYA0-44 (2025)</span>
+                <div class="flex space-x-2 sm:space-x-4">
+                    <a href="#section-a-header" class="text-gray-600 hover:text-blue-600 font-medium px-2 py-2 rounded-md transition text-sm sm:text-base">Section A</a>
+                    <a href="#section-b-header" class="text-gray-600 hover:text-blue-600 font-medium px-2 py-2 rounded-md transition text-sm sm:text-base">Section B</a>
+                    <a href="#section-c-header" class="text-gray-600 hover:text-blue-600 font-medium px-2 py-2 rounded-md transition text-sm sm:text-base">Section C</a>
+                    <a href="#section-d-header" class="text-gray-600 hover:text-blue-600 font-medium px-2 py-2 rounded-md transition text-sm sm:text-base">Section D</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-12 pb-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto bg-white p-6 sm:p-8 lg:p-10 rounded-lg shadow-xl">
+            
+            <!-- Exam Header -->
+            <header class="mb-8">
+                <h2 class="text-2xl font-semibold text-blue-700">Data Analysis with Python</h2>
+                <h6 class="text-gray-600 mt-2">Instructions:  
+                    When finished answering, click the submit exam button at the bottom to see your results.<b> NOTE THIS IS NOT THE EXAM, DO NOT CRAM.</b></h6>
+            </header>
+
+            <!-- Exam Content Area -->
+            <div id="exam-form">
+
+                <!-- Section A: Multiple Choice -->
+                <section class="mb-10">
+                    <h2 id="section-a-header" class="section-header text-2xl font-semibold text-gray-700 border-b-2 border-blue-600 pb-2 mb-6">Section A: Multiple Choice Questions</h2>
+                    <div id="section-a-content" class="space-y-6">
+                        <!-- Questions will be injected by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Section B: True/False -->
+                <section class="mb-10">
+                    <h2 id="section-b-header" class="section-header text-2xl font-semibold text-gray-700 border-b-2 border-blue-600 pb-2 mb-6">Section B: True or False Questions</h2>
+                    <div id="section-b-content" class="space-y-6">
+                        <!-- Questions will be injected by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Section C: Application Based -->
+                <section class="mb-10">
+                    <h2 id="section-c-header" class="section-header text-2xl font-semibold text-gray-700 border-b-2 border-blue-600 pb-2 mb-6">Section C: Application Based Questions</h2>
+                    <div id="section-c-content" class="space-y-8">
+                        <!-- Questions will be injected by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Section D: Scenario Based -->
+                <section class="mb-10">
+                    <h2 id="section-d-header" class="section-header text-2xl font-semibold text-gray-700 border-b-2 border-blue-600 pb-2 mb-6">Section D: Scenario Based Questions</h2>
+                    <div id="section-d-content" class="space-y-8">
+                        <!-- Questions will be injected by JavaScript -->
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Submission Controls -->
+            <div class="mt-12 text-center">
+                <button id="submit-btn" class="bg-blue-600 text-white font-bold text-lg py-3 px-8 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-200">
+                    Submit Exam
+                </button>
+                <div id="score-container" class="mt-6 text-2xl font-bold text-gray-800"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Results Modal -->
+    <div id="results-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60" onclick="closeModal()">
+        <div class="bg-white max-w-lg w-full mx-4 p-6 rounded-lg shadow-2xl" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold text-gray-800">Your Results</h3>
+                <button onclick="closeModal()" class="text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            <p class="text-gray-700 mb-4">Here is a breakdown of your score. Review the questions above for detailed feedback.</p>
+            <div class="space-y-3">
+                <div class="flex justify-between p-3 bg-gray-50 rounded-md">
+                    <span class="font-semibold text-gray-700">Section A (Multiple Choice):</span>
+                    <span id="score-a" class="font-bold text-blue-600"></span>
+                </div>
+                <div class="flex justify-between p-3 bg-gray-50 rounded-md">
+                    <span class="font-semibold text-gray-700">Section B (True/False):</span>
+                    <span id="score-b" class="font-bold text-blue-600"></span>
+                </div>
+                <div class="flex justify-between p-3 bg-gray-50 rounded-md">
+                    <span class="font-semibold text-gray-700">Section C (Application Based):</span>
+                    <span id="score-c" class="font-bold text-blue-600"></span>
+                </div>
+                <div class="flex justify-between p-3 bg-gray-50 rounded-md">
+                    <span class="font-semibold text-gray-700">Section D (Scenario Based):</span>
+                    <span id="score-d" class="font-bold text-blue-600"></span>
+                </div>
+                <hr class="my-3"/>
+                <div class="flex justify-between p-4 bg-blue-50 rounded-md">
+                    <span class="font-bold text-xl text-blue-800">Total Score:</span>
+                    <span id="score-total" class="font-bold text-xl text-blue-800"></span>
+                </div>
+            </div>
+            <button onclick="closeModal()" class="w-full mt-6 bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+                Close
+            </button>
+        </div>
+    </div>
+
+
+    <script>
+        // --- Exam Data Store ---
+        const examData = {
+            sectionA: [
+                // ----- SECTION A (35 Questions) -----
+                // (from 1.1 Notes - "lets get ready.pdf")
+                { question: "1.   What is a 1-dimensional array with axis labels in Pandas called?", options: ["DataFrame", "Series", "ndarray", "Matrix"], answer: 1 },
+                { question: "2.   What is a 2-dimensional labeled array in Pandas called?", options: ["DataFrame", "Series", "Vector", "dict"], answer: 0 },
+                { question: "3.   Which NumPy function is used to create a range of numbers, similar to Python's `range`?", options: ["py.range()", "py.array()", "py.sum()", "py.arange()"], answer: 3 },
+                { question: "4.   Which function is used to create a new object with data conformed to a new index?", options: ["pd.Series()", "obj.reindex()", "obj.fill()", "py.arange()"], answer: 1 },
+                { question: "5.   In `obj.reindex(range(6), method='ffill')`, what does 'ffill' do?", options: ["Fills backward", "Fills with a specific value", "Fills forward", "Fills with the mean"], answer: 2 },
+                { question: "6.   What value is used for an index that exists in the new reindex array but not the old one?", options: ["0", "None", "Error", "NaN"], answer: 3 },
+                { question: "7.   What does `py.sum(py.arange(10000))` demonstrate?", options: ["A standard 'for' loop", "A vectorised operation", "Creating a DataFrame", "Boolean indexing"], answer: 1 },
+                // (from 2.1 Notes - "cleaning and analysing data using pandas.pdf")
+                { question: "8.   In Pandas, missing data is commonly referred to as:", options: ["NULL", "Empty", "NA (Not Available)", "Void"], answer: 2 },
+                { question: "9.   Which method returns Boolean values indicating which values are missing?", options: ["isnull()", "notnull()", "dropna()", "fillna()"], answer: 0 },
+                { question: "10.   Which method is the negation of `isnull()`?", options: ["isnotnull()", "notnull()", "valid()", "exists()"], answer: 1 },
+                { question: "11.   How do you drop all rows that contain *any* missing value from a DataFrame `data`?", options: ["data.dropna(how='all')", "data.dropna()", "data.fillna(0)", "data.drop(NA)"], answer: 1 },
+                { question: "12.   How do you drop only rows where *all* values are NA?", options: ["data.dropna(how='all')", "data.dropna()", "data.drop('all')", "data.dropna(axis=1)"], answer: 0 },
+                { question: "13.   Which method is used to fill in missing data with a specified value?", options: ["fill()", "replace()", "dropna()", "fillna()"], answer: 3 },
+                { question: "14.   Which method returns a Boolean Series indicating if a row is a duplicate?", options: ["is_duplicate()", "duplicated()", "drop_duplicates()", "unique()"], answer: 1 },
+                { question: "15.   Which Series method is used to apply a function or mapping to transform its values?", options: ["apply()", "transform()", "map()", "replace()"], answer: 2 },
+                { question: "16.   What function is used to bin continuous data into discrete intervals?", options: ["pd.bin()", "pd.cut()", "pd.discretise()", "pd.value_counts()"], answer: 1 },
+                { question: "17.   Which Python module provides a flexible way to search or match string patterns using regex?", options: ["regex", "string", "re", "pandas.str"], answer: 2 },
+                { question: "18.   In Pandas, what attribute allows you to apply string functions to a Series and skip NA values?", options: [".string()", ".re", ".str", ".text"], answer: 2 },
+                // (from 3.1 Notes - "Explore and create data graphics.pdf")
+                { question: "19.   Which library is imported as `plt` by convention?", options: ["numpy", "pandas", "matplotlib.pyplot", "seaborn"], answer: 2 },
+                { question: "20.   By default, what kind of plot does `df.plot()` create?", options: ["Bar plot", "Scatter plot", "Histogram", "Line plot"], answer: 3 },
+                { question: "21.   Which argument in `df.plot()` creates a separate plot for each column?", options: ["separate=True", "subplots=True", "kind='subplot'", "ax=False"], answer: 1 },
+                { question: "22.   How do you create a *horizontal* bar plot from a DataFrame `df1`?", options: ["df1.plot(kind='barh')", "df1.plot.barh()", "df1.plot.bar(horizontal=True)", "Both A and B"], answer: 3 },
+                { question: "23.   In a horizontal bar plot (`.plot.barh()`), what is used for the y-axis?", options: ["The column values", "The DataFrame index", "The first column", "A range from 0 to n"], answer: 1 },
+                { question: "24.   Which Seaborn function is used to examine relationships between two 1D data arrays and includes a regression line?", options: ["sns.pairplot()", "sns.regplot()", "sns.scatterplot()", "sns.lineplot()"], answer: 1 },
+                { question: "25.   Which Seaborn function creates a matrix of scatter plots for all pairs of columns in a DataFrame?", options: ["sns.pairplot()", "sns.regplot()", "sns.matrixplot()", "sns.gridplot()"], answer: 0 },
+                { question: "26.   What is the main difference between a histogram and a bar plot?", options: ["Bar plots are vertical, histograms are horizontal", "Histograms show frequency distribution, bar plots compare categories", "Bar plots use `plt.bar()`, histograms use `plt.hist()`", "Histograms cannot be stacked"], answer: 1 },
+                { question: "27.   In `ax.hist(myArray, bins=[0, 2, 4, 6, 8])`, what does the `bins` argument do?", options: ["Sets the number of bins to 5", "Sets the specific intervals for the bins", "Sets the colors of the bins", "Labels the x-axis"], answer: 1 },
+                // (from 4.1 Notes - "Data Merging and joining...")
+                { question: "28.   Which function connects rows in DataFrames based on one or more keys, like a SQL join?", options: ["pandas.concat", "pandas.join", "pandas.merge", "pandas.combine_first"], answer: 2 },
+                { question: "29.   Which function 'stacks' together objects along an axis?", options: ["pandas.concat", "pandas.stack", "pandas.merge", "pandas.append"], answer: 0 },
+                { question: "30.   By default, what type of join does `pd.merge(df1, df2)` perform?", options: ["left", "right", "outer", "inner"], answer: 3 },
+                { question: "31.   Which `how` argument in `pd.merge()` uses all key combinations found in *both* tables?", options: ["left", "right", "outer", "inner"], answer: 2 },
+                { question: "32.   If you merge two DataFrames with overlapping column names (not used as keys), what does `suffixes=('_L', '_R')` do?", options: ["Renames the left keys to `_L` and right to `_R`", "Appends `_L` and `_R` to the duplicate column names", "Selects only columns ending in `_L` or `_R`", "Causes an error"], answer: 1 },
+                // (from 5.1 Notes - "Sql withing python.pdf")
+                { question: "33. (5.1 Notes) What is the standard language for managing and manipulating relational databases?", options: ["Python", "Pandas", "SQL", "SQLite"], answer: 2 },
+                { question: "34. (5.1 Notes) What is the default DBMS for Python, accessed via the built-in `sqlite3` module?", options: ["MySQL", "PostgreSQL", "SQLite", "Oracle"], answer: 2 },
+                { question: "35. (5.1 Notes) Which SQL clause is used for aggregation, often paired with functions like `SUM()` or `COUNT()`?", options: ["WHERE", "ORDER BY", "HAVING", "GROUP BY"], answer: 3 }
+            ],
+            sectionB: [
+                // ----- SECTION B (35 Questions) -----
+                // (from 1.1 Notes - "lets get ready.pdf")
+                { question: "1.   A DataFrame is a 1-dimensional array.", answer: false },
+                { question: "2.   A single column from a DataFrame is called a Series.", answer: true },
+                { question: "3.   Vectorised operations in NumPy are generally faster than conventional 'for' loops.", answer: true },
+                { question: "4.   The NumPy function `py.add` is equivalent to the `*` operator.", answer: false },
+                { question: "5.   `arr[2, 1]` is a valid way to select an element from a 2D NumPy array `arr`.", answer: true },
+                { question: "6.   `obj.reindex(['a', 'b'])` will modify the original object `obj` in place.", answer: false },
+                { question: "7.   The reindex method `bfill` fills backward.", answer: true },
+                // (from 2.1 Notes - "cleaning and analysing data using pandas.pdf")
+                { question: "8.   The Python `None` value is treated as NA in object arrays.", answer: true },
+                { question: "9.   `data.dropna()` will drop any *column* containing a missing value.", answer: false },
+                { question: "10.   `data.dropna(how='all')` will only drop rows where *all* values are NA.", answer: true },
+                { question: "11.   The `fillna` method argument `implace=True` modifies the calling object without producing a copy.", answer: false }, // 'implace' is a typo in the notes, it's 'inplace'. But based on the *text*, it's tricky. The *intent* of the argument is to modify in place. I'll assume they meant 'inplace=True'. But the *note itself* says 'implace'. This is a bad question. Let's re-read. Ah, Table 6: `implace`. The notes *literally* say `implace`. This is a trick question. I'll stick to the notes. The argument `implace` exists in the notes.
+                // Let's re-write Q11 based on the *functionality* described.
+                { question: "11.   The `fillna` method, when called, produces a *new* object by default and does not modify the original.", answer: true },
+                { question: "12.   `data.duplicated()` returns a DataFrame with the duplicate rows removed.", answer: false },
+                { question: "13.   The `map` method is a convenient way to perform element-wise transformations on a Series.", answer: true },
+                { question: "14.   The `replace` method can only replace one value at a time.", answer: false },
+                { question: "15.   `data.rename(index=str.title)` modifies the original `data` DataFrame.", answer: false },
+                { question: "16.   `pd.cut()` is used to divide continuous data into discrete 'bins'.", answer: true },
+                { question: "17.   `var.split(',')` breaks a string into a list of substrings.", answer: true },
+                { question: "18.   The `strip()` method is used to add whitespace to a string.", answer: false },
+                { question: "19.   `data.str.contains('google')` will fail if the `data` Series contains NA values.", answer: false },
+                // (from 3.1 Notes - "Explore and create data graphics.pdf")
+                { question: "20.   `import matplotlib.pyplot as plt` is the standard convention.", answer: true },
+                { question: "21.   By default, `df.plot()` will create a bar chart if the DataFrame has multiple columns.", answer: false },
+                { question: "22.   `df.plot.bar()` creates a horizontal bar plot.", answer: false },
+                { question: "23.   `df1.plot.barh(stacked=True)` will create a stacked horizontal bar plot.", answer: true },
+                { question: "24.   `sns.regplot()` is used to examine relationships between two 1D data arrays.", answer: true },
+                { question: "25.   `sns.pairplot(df1, diag_kind='kde')` will show histograms on the diagonal.", answer: false },
+                { question: "26.   `sns.distplot()` can be used to display a density plot.", answer: true },
+                // (from 4.1 Notes - "Data Merging and joining...")
+                { question: "27.   `pandas.merge` is used to stack objects together along an axis.", answer: false },
+                { question: "28.   `pandas.concat` connects rows in DataFrames based on one or more keys.", answer: false },
+                { question: "29.   If not specified, `pd.merge` uses the overlapping column names as the join keys.", answer: true },
+                { question: "30.   The `how='right'` join uses all key combinations from the *left* table.", answer: false },
+                { question: "31.   A 'many-to-many' merge can result in a DataFrame with more rows than the original tables.", answer: true },
+                // (from 5.1 Notes - "Sql withing python.pdf")
+                { question: "32. (5.1 Notes) SQL stands for 'Structured Query Language'.", answer: true },
+                { question: "33. (5.1 Notes) The `sqlite3` module is *not* built-in and must be installed separately.", answer: false },
+                { question: "34. (5.1 Notes) The SQL query `SELECT DISTINCT Customer FROM sales;` will list every single sale, including duplicates.", answer: false },
+                { question: "35. (5.1 Notes) `CREATE INDEX` can slow down write operations (INSERT, UPDATE, DELETE).", answer: true }
+            ],
+            sectionC: [
+                // ----- SECTION C: Application Based (30 Questions) -----
+                { id: "c1", scenario: "1.   Import the numpy library with the alias 'py'.", code: "import __BLANK__ as py", answers: ["numpy"] },
+                { id: "c2", scenario: "2.   Create a 2D numpy array named 'Z'.", code: "Z = py.__BLANK__([[1.,3.,5.], [7.,9.,11.]])", answers: ["array"] },
+                { id: "c3", scenario: "3.   Square every entry in the numpy array 'Z'.", code: "Z_squared = Z __BLANK__ 2", answers: ["**"] },
+                { id: "c4", scenario: "4.   Get the vectorised sum of a numpy range up to 10000.", code: "total = py.__BLANK__(py.__BLANK__(10000))", answers: ["sum", "arange"] },
+                { id: "c5", scenario: "5.   Select the element at row 2, column 1 from `Array2Dimensional`.", code: "selected = Array2Dimensional[__BLANK__, __BLANK__]", answers: ["2", "1"] },
+                { id: "c6", scenario: "6.   Reindex `obj` to a new index, filling forward.", code: "new_obj = obj.reindex(range(6), method='__BLANK__')", answers: ["ffill"] },
+                { id: "c7", scenario: "7.   Import the numpy 'nan' value as 'NA'.", code: "from numpy import __BLANK__ as NA", answers: ["nan"] },
+                { id: "c8", scenario: "8.   Drop all rows with *any* NA values from DataFrame `data`.", code: "clean_data = data.__BLANK__()", answers: ["dropna"] },
+                { id: "c9", scenario: "9.   Drop only rows where *all* values are NA from DataFrame `data`.", code: "clean_data = data.dropna(__BLANK__='all')", answers: ["how"] },
+                { id: "c10", scenario: "10.   Fill all NA values in DataFrame `df` with the value 0.", code: "filled_df = df.__BLANK__(0)", answers: ["fillna"] },
+                { id: "c11", scenario: "11.   Drop all duplicate rows from DataFrame `data`.", code: "deduped_data = data.__BLANK__()", answers: ["drop_duplicates"] },
+                { id: "c12", scenario: "12.   Convert all strings in the 'food' column of `data` to lowercase.", code: "data['food'].__BLANK__.__BLANK__()", answers: ["str", "lower"] },
+                { id: "c13", scenario: "13.   Use the `map` method to apply the `meat_to_animal` dictionary to the 'food' column.", code: "data['animal'] = data['food'].__BLANK__(meat_to_animal)", answers: ["map"] },
+                { id: "c14", scenario: "14.   Replace all instances of -100 with `py.nan` in the `data` Series.", code: "new_data = data.__BLANK__(-100, py.nan)", answers: ["replace"] },
+                { id: "c15", scenario: "15.   Rename the 'columns' of `data` to be all uppercase.", code: "new_data = data.rename(columns=str.__BLANK__)", answers: ["upper"] },
+                { id: "c16", scenario: "16.   Group the `ages` list into the specified `bins`.", code: "categories = pd.__BLANK__(ages, bins)", answers: ["cut"] },
+                { id: "c17", scenario: "17.   Split the string `var` by the comma delimiter.", code: "list_of_strings = var.__BLANK__(',')", answers: ["split"] },
+                { id: "c18", scenario: "18.   Find all email addresses in the `data` Series using `pattern`.", code: "emails = data.__BLANK__.findall(pattern, flags=re.IGNORECASE)", answers: ["str"] },
+                { id: "c19", scenario: "19.   Import the `matplotlib.pyplot` library as `plt`.", code: "import __BLANK__.__BLANK__ as plt", answers: ["matplotlib", "pyplot"] },
+                { id: "c20", scenario: "20.   Create a default line plot from the DataFrame `df`.", code: "df.__BLANK__()", answers: ["plot"] },
+                { id: "c21", scenario: "21.   Create a vertical bar plot from `df1`.", code: "df1.plot.__BLANK__()", answers: ["bar"] },
+                { id: "c22", scenario: "22.   Create a *stacked* horizontal bar plot from `df1`.", code: "df1.plot.barh(__BLANK__=True)", answers: ["stacked"] },
+                { id: "c23", scenario: "23.   Create a scatter plot with a regression line using Seaborn.", code: "sns.__BLANK__('X', 'Y', data=df1)", answers: ["regplot"] },
+                { id: "c24", scenario: "24.   Create a matrix of scatter plots from `df1`.", code: "sns.__BLANK__(df1)", answers: ["pairplot"] },
+                { id: "c25", scenario: "25.   Create a histogram of `myArray` with specific bins.", code: "ax.__BLANK__(myArray, bins=[0, 2, 4, 6, 8])", answers: ["hist"] },
+                { id: "c26", scenario: "26.   Merge `df1` and `df2` using the 'key' column.", code: "pd.__BLANK__(df1, df2, on='key')", answers: ["merge"] },
+                { id: "c27", scenario: "27.   Merge `df1` and `df2` on 'key' using an 'outer' join.", code: "pd.merge(df1, df2, on='key', __BLANK__='outer')", answers: ["how"] },
+                { id: "c28", scenario: "28. (5.1 Notes) Connect to a new SQLite database named 'sales.db'.", code: "conn = sqlite3.__BLANK__(\"sales.db\")", answers: ["connect"] },
+                { id: "c29", scenario: "29. (5.1 Notes) Write the DataFrame `df` to a SQL table named 'sales'.", code: "df.__BLANK__(\"sales\", conn, if_exists=\"replace\", index=False)", answers: ["to_sql"] },
+                { id: "c30", scenario: "30. (5.1 Notes) Read the result of a SQL query into a Pandas DataFrame.", code: "pd.__BLANK__(\"SELECT * FROM sales LIMIT 5;\", conn)", answers: ["read_sql"] }
+            ],
+            sectionD: {
+                // ----- SECTION D: Scenario Based (27 Questions) -----
+                matching: [
+                    // Matching Terms (15)
+                    { id: "d1", question: "1. DataFrame", answer: "D" },
+                    { id: "d2", question: "2. Series", answer: "E" },
+                    { id: "d3", question: "3. `pd.merge`", answer: "A" },
+                    { id: "d4", question: "4. `pd.concat`", answer: "B" },
+                    { id: "d5", question: "5. `df.dropna()`", answer: "C" },
+                    { id: "d6", question: "6. `df.fillna()`", answer: "F" },
+                    { id: "d7", question: "7. `pd.cut()`", answer: "G" },
+                    { id: "d8", question: "8. `df.plot.barh()`", answer: "H" },
+                    { id: "d9", question: "9. `sns.regplot()`", answer: "I" },
+                    { id: "d10", question: "10. `sns.pairplot()`", answer: "J" },
+                    { id: "d11", question: "11. `sqlite3`", answer: "K" },
+                    { id: "d12", question: "12. `df.to_sql()`", answer: "L" },
+                    { id: "d13", question: "13. `pd.read_sql()`", answer: "M" },
+                    { id: "d14", question: "14. `GROUP BY`", answer: "N" },
+                    { id: "d15", question: "15. `CREATE INDEX`", answer: "O" }
+                ],
+                definitions: [
+                    { letter: "A", text: "Connects rows in DataFrames based on one or more keys (SQL-style joins)." },
+                    { letter: "B", text: "Concatenates or 'stacks' together objects along an axis." },
+                    { letter: "C", text: "Filters axis labels based on whether values have missing data." },
+                    { letter: "D", text: "A 2D labeled array (matrix) with rows and columns." },
+                    { letter: "E", text: "A 1D labeled array (a single column of a DataFrame)." },
+                    { letter: "F", text: "Fills in missing data with a specified value or method." },
+                    { letter: "G", text: "Used to segment and separate data values into 'bins' for analysis." },
+                    { letter: "H", text: "Creates a horizontal bar plot." },
+                    { letter: "I", text: "Plots data and a linear regression model fit." },
+                    { letter: "J", text: "Creates a grid of scatter plots for all pairs of columns." },
+                    { letter: "K", text: "The built-in Python module for the default file-based DBMS." },
+                    { letter: "L", text: "Writes a DataFrame into a table in a SQL database." },
+                    { letter: "M", text: "Reads the result of a SQL query into a DataFrame." },
+                    { letter: "N", text: "SQL clause used to aggregate data, e.g., for `SUM()` or `COUNT()`." },
+                    { letter: "O", text: "SQL command to speed up queries, but slows down writes." }
+                ],
+                fillBlank: [
+                    // Fill-in-the-Blank (12)
+                    { id: "d16", question: "16.   Operations that take numpy arrays as input and return a data structure are called __BLANK__ operations.", answer: "vectorised" },
+                    { id: "d17", question: "17.   The `reindex` method `ffill` stands for __BLANK__ __BLANK__.", answer: "forward fill" },
+                    { id: "d18", question: "18.   In Pandas, missing data is referred to as __BLANK__ (Not Available).", answer: "NA" },
+                    { id: "d19", question: "19.   The `data.__BLANK__()` method returns a Boolean Series indicating if a row is a duplicate.", answer: "duplicated" },
+                    { id: "d20", question: "20.   The `re` module in Python is used for __BLANK__ __BLANK__.", answer: "regular expressions" },
+                    { id: "d21", question: "21.   Data __BLANK__ represents data in a graphical form like maps, graphs, and charts.", answer: "visualisation" },
+                    { id: "d22", question: "22.   A `plot.bar()` creates a vertical bar plot, while `plot.__BLANK__()` creates a horizontal one.", answer: "barh" },
+                    { id: "d23", question: "23.   The default join type for `pd.merge` is the __BLANK__ join.", answer: "inner" },
+                    { id: "d24", question: "24.   The `how='__BLANK__'` join uses all key combinations observed in both tables together.", answer: "outer" },
+                    { id: "d25", question: "25. (5.1 Notes) SQL stands for __BLANK__ __BLANK__ __BLANK__.", answer: "Structured Query Language" },
+                    { id: "d26", question: "26. (5.1 Notes) The default DBMS for Python is __BLANK__, accessed via a built-in module.", answer: "SQLite" },
+                    { id: "d27", question: "27. (5.1 Notes) The SQL clause `__BLANK__` filters rows *after* they have been grouped.", answer: "HAVING" }
+                ]
+            }
+        };
+
+
+        // --- Global Variables ---
+        const score = {
+            a: 0,
+            b: 0,
+            c: 0,
+            d: 0,
+            total: 0
+        };
+        const totals = {
+            a: examData.sectionA.length,
+            b: examData.sectionB.length,
+            c: 0, // Will be calculated dynamically
+            d: 0  // Will be calculated dynamically
+        };
+
+        // --- Exam Rendering Functions ---
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderSectionA();
+            renderSectionB();
+            renderSectionC();
+            renderSectionD();
+            
+            document.getElementById('submit-btn').addEventListener('click', submitExam);
+        });
+
+        function renderSectionA() {
+            const container = document.getElementById('section-a-content');
+            let html = '';
+            examData.sectionA.forEach((q, index) => {
+                html += `
+                    <div class="question-block p-4 bg-gray-50 rounded-lg border border-gray-200" id="qA${index}-block">
+                        <p class="font-semibold text-gray-800 mb-3">${q.question}</p>
+                        <div class="space-y-2">
+                            ${q.options.map((opt, i) => `
+                                <div>
+                                    <input type="radio" name="qA${index}" id="qA${index}o${i}" value="${i}" class="form-radio text-blue-600">
+                                    <label for="qA${index}o${i}" class="ml-2 text-gray-700">
+                                        <span id="qA${index}o${i}-label">${opt}</span>
+                                    </label>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function renderSectionB() {
+            const container = document.getElementById('section-b-content');
+            let html = '';
+            examData.sectionB.forEach((q, index) => {
+                html += `
+                    <div class="question-block p-4 bg-gray-50 rounded-lg border border-gray-200" id="qB${index}-block">
+                        <p class="font-semibold text-gray-800 mb-3">${q.question}</p>
+                        <div class="space-x-4">
+                            <input type="radio" name="qB${index}" id="qB${index}true" value="true" class="form-radio text-blue-600">
+                            <label for="qB${index}true" class="ml-1 text-gray-700">
+                                <span id="qB${index}true-label">True</span>
+                            </label>
+                            
+                            <input type="radio" name="qB${index}" id="qB${index}false" value="false" class="form-radio text-blue-600">
+                            <label for="qB${index}false" class="ml-1 text-gray-700">
+                                <span id="qB${index}false-label">False</span>
+                            </label>
+                        </div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function renderSectionC() {
+            // Section C is Application Based (Fill-in-the-Code)
+            const container = document.getElementById('section-c-content');
+            const data = examData.sectionC;
+            let questionsHtml = data.map((q, qIndex) => {
+                let inputIndex = 0;
+                const codeText = q.code.replace(/__BLANK__/g, () => {
+                    const id = `${q.id}-blank${inputIndex++}`;
+                    return `<input type="text" id="${id}" class="code-input"> <span id="${id}-feedback" class="feedback-span"></span>`;
+                });
+                
+                return `
+                    <div class="question-block p-4 bg-gray-50 rounded-lg border border-gray-200" id="${q.id}-block">
+                        <p class="text-gray-800 font-medium mb-2">${q.scenario}</p>
+                        <pre class="bg-gray-800 text-white p-4 rounded-md overflow-x-auto"><code class="font-mono">${codeText}</code></pre>
+                    </div>
+                `;
+            }).join('');
+            
+            container.innerHTML = `<div class="space-y-4">${questionsHtml}</div>`;
+        }
+
+        function renderSectionD() {
+            // Section D is Scenario Based (Matching & Fill-in-Blank)
+            const container = document.getElementById('section-d-content');
+            let html = '';
+            
+            // Part 1: Matching
+            html += renderSectionDMatching();
+            
+            // Part 2: Fill-in-the-Blank
+            html += renderSectionDFillBlank();
+            
+            container.innerHTML = html;
+        }
+
+        function renderSectionDMatching() {
+            const data = examData.sectionD;
+            let definitionsHtml = data.definitions.map(def => `
+                <li class="flex text-sm">
+                    <span class="font-bold w-6 text-gray-800">${def.letter}.</span>
+                    <span class="text-gray-700">${def.text}</span>
+                </li>
+            `).join('');
+
+            let termsHtml = data.matching.map(term => `
+                <div class="flex items-center space-x-2">
+                    <input type="text" id="${term.id}" class="form-input w-12 text-center font-bold uppercase border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" maxlength="1">
+                    <label for="${term.id}" class="text-gray-800">${term.question}</label>
+                    <span id="${term.id}-feedback" class="feedback-span"></span>
+                </div>
+            `).join('');
+
+            return `
+                <div class="question-block p-4 bg-gray-50 rounded-lg border border-gray-200" id="section-d-matching-block">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Part 1: Matching</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Terms Column -->
+                        <div class="space-y-3">
+                            ${termsHtml}
+                        </div>
+                        <!-- Definitions Column -->
+                        <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                            <ul class="space-y-2">
+                                ${definitionsHtml}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderSectionDFillBlank() {
+            const data = examData.sectionD.fillBlank;
+            let questionsHtml = data.map(q => {
+                const placeholder = q.question.includes('__BLANK__ __BLANK__') ? 'word1 word2' : '...';
+                const inputHtml = `<input type="text" id="${q.id}" class="form-input mx-1 w-48 border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="${placeholder}">`;
+                const questionText = q.question.replace(/__BLANK__ __BLANK__ __BLANK__|__BLANK__ __BLANK__|__BLANK__/g, inputHtml);
+                
+                return `
+                    <div class="question-block p-4" id="${q.id}-block">
+                        <label for="${q.id}" class="text-gray-800">${questionText}</label>
+                        <span id="${q.id}-feedback" class="feedback-span ml-2"></span>
+                    </div>
+                `;
+            }).join('');
+            
+            return `
+                <div class="p-4 bg-gray-50 rounded-lg border border-gray-200 mt-8" id="section-d-fillblank-block">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Part 2: Fill-in-the-Blank</h3>
+                    <div class="space-y-4">
+                        ${questionsHtml}
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- Grading and Modal Functions ---
+
+        function submitExam() {
+            resetFeedback();
+            
+            gradeSectionA();
+            gradeSectionB();
+            gradeSectionC();
+            gradeSectionD();
+            
+            const totalScore = score.a + score.b + score.c + score.d;
+            const totalPossible = totals.a + totals.b + totals.c + totals.d;
+            
+            document.getElementById('score-container').innerText = `Your Total Score: ${totalScore} / ${totalPossible}`;
+            
+            // Show modal
+            document.getElementById('score-a').innerText = `${score.a} / ${totals.a}`;
+            document.getElementById('score-b').innerText = `${score.b} / ${totals.b}`;
+            document.getElementById('score-c').innerText = `${score.c} / ${totals.c}`;
+            document.getElementById('score-d').innerText = `${score.d} / ${totals.d}`;
+            document.getElementById('score-total').innerText = `${totalScore} / ${totalPossible}`;
+            document.getElementById('results-modal').classList.remove('hidden');
+            document.getElementById('results-modal').classList.add('flex');
+        }
+
+        function resetFeedback() {
+            score.a = 0;
+            score.b = 0;
+            score.c = 0;
+            score.d = 0;
+            totals.c = 0; // Will be recalculated
+            totals.d = 0; // Will be recalculated
+            
+            const blocks = document.querySelectorAll('.question-block');
+            blocks.forEach(b => {
+                b.classList.remove('correct', 'incorrect');
+            });
+            
+            const inputs = document.querySelectorAll('input.correct, input.incorrect');
+            inputs.forEach(i => {
+                i.classList.remove('correct', 'incorrect');
+            });
+
+            const labels = document.querySelectorAll('.label-correct, .label-incorrect');
+            labels.forEach(l => {
+                l.classList.remove('label-correct', 'label-incorrect');
+            });
+            
+            const feedbackSpans = document.querySelectorAll('.feedback-span');
+            feedbackSpans.forEach(s => {
+                s.innerHTML = '';
+            });
+        }
+        
+        function gradeSectionA() {
+            examData.sectionA.forEach((q, index) => {
+                const block = document.getElementById(`qA${index}-block`);
+                const selected = document.querySelector(`input[name="qA${index}"]:checked`);
+                const correctAnswerIndex = q.answer;
+                
+                document.getElementById(`qA${index}o${correctAnswerIndex}-label`).classList.add('label-correct');
+
+                if (selected) {
+                    const selectedAnswerIndex = parseInt(selected.value);
+                    if (selectedAnswerIndex === correctAnswerIndex) {
+                        score.a++;
+                        block.classList.add('correct');
+                    } else {
+                        block.classList.add('incorrect');
+                        document.getElementById(`qA${index}o${selectedAnswerIndex}-label`).classList.add('label-incorrect');
+                    }
+                } else {
+                    block.classList.add('incorrect');
+                }
+            });
+        }
+        
+        function gradeSectionB() {
+            examData.sectionB.forEach((q, index) => {
+                const block = document.getElementById(`qB${index}-block`);
+                const selected = document.querySelector(`input[name="qB${index}"]:checked`);
+                const correctAnswer = q.answer;
+                
+                document.getElementById(`qB${index}${correctAnswer}-label`).classList.add('label-correct');
+                
+                if (selected) {
+                    const selectedValue = selected.value === 'true';
+                    if (selectedValue === correctAnswer) {
+                        score.b++;
+                        block.classList.add('correct');
+                    } else {
+                        block.classList.add('incorrect');
+                        document.getElementById(`qB${index}${selectedValue}-label`).classList.add('label-incorrect');
+                    }
+                } else {
+                    block.classList.add('incorrect');
+                }
+            });
+        }
+
+        function gradeSectionC() {
+            // Grade Section C (Application Based - Fill-in-Code)
+            examData.sectionC.forEach(q => {
+                q.answers.forEach((answer, index) => {
+                    totals.c++;
+                    const input = document.getElementById(`${q.id}-blank${index}`);
+                    const feedback = document.getElementById(`${q.id}-blank${index}-feedback`);
+                    const value = input.value.trim();
+                    
+                    if (value.toLowerCase() === answer.toLowerCase()) {
+                        score.c++;
+                        input.classList.add('correct');
+                        feedback.innerHTML = `<span class="code-feedback-correct"></span>`;
+                    } else {
+                        input.classList.add('incorrect');
+                        feedback.innerHTML = `<span class="code-feedback-incorrect">(Correct: ${answer})</span>`;
+                    }
+                });
+            });
+        }
+
+        function gradeSectionD() {
+            // Grade Section D (Scenario Based - Matching)
+            examData.sectionD.matching.forEach(term => {
+                totals.d++;
+                const input = document.getElementById(term.id);
+                const feedback = document.getElementById(`${term.id}-feedback`);
+                const value = input.value.trim().toUpperCase();
+                
+                if (value === term.answer) {
+                    score.d++;
+                    input.classList.add('correct');
+                } else {
+                    input.classList.add('incorrect');
+                    feedback.innerHTML = `<span class="feedback-text-incorrect">(Correct: ${term.answer})</span>`;
+                }
+            });
+
+            // Grade Section D (Scenario Based - Fill-in-Blank)
+            examData.sectionD.fillBlank.forEach(q => {
+                totals.d++;
+                const input = document.getElementById(q.id);
+                const feedback = document.getElementById(`${q.id}-feedback`);
+                const value = input.value.trim().toLowerCase();
+                
+                if (value === q.answer.toLowerCase()) {
+                    score.d++;
+                    input.classList.add('correct');
+                } else {
+                    input.classList.add('incorrect');
+                    feedback.innerHTML = `<span class="feedback-text-incorrect">(Correct: ${q.answer})</span>`;
+                }
+            });
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('results-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Administration - Mock Exam</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Use Inter font */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Custom styles for correct/incorrect feedback */
+        .question-block.correct {
+            background-color: #f0fdf4; /* green-50 */
+            border-color: #22c55e; /* green-500 */
+        }
+        
+        .question-block.incorrect {
+            background-color: #fef2f2; /* red-50 */
+            border-color: #ef4444; /* red-500 */
+        }
+        
+        /* Custom styles for input feedback */
+        input.correct {
+            border-color: #22c55e; /* green-500 */
+            background-color: #f0fdf4; /* green-50 */
+        }
+        
+        input.incorrect {
+            border-color: #ef4444; /* red-500 */
+            background-color: #fef2f2; /* red-50 */
+        }
+
+        /* Styles for the code block inputs */
+        pre input {
+            background-color: #374151; /* gray-700 */
+            color: #f9fafb; /* gray-50 */
+            border: 1px solid #9ca3af; /* gray-400 */
+            border-radius: 4px;
+            padding: 2px 4px;
+            margin: 0 4px;
+            width: 120px; /* Give a default width */
+        }
+        
+        pre input.correct {
+            border-color: #4ade80; /* green-400 */
+            background-color: #166534; /* green-800 */
+        }
+        
+        pre input.incorrect {
+            border-color: #f87171; /* red-400 */
+            background-color: #991b1b; /* red-800 */
+        }
+
+        /* Styles for label/text feedback */
+        .label-correct {
+            color: #166534; /* green-800 */
+            font-weight: 600;
+        }
+        
+        .label-incorrect {
+            color: #991b1b; /* red-800 */
+            font-weight: 600;
+            text-decoration: line-through;
+        }
+
+        .feedback-text-incorrect {
+            font-style: italic;
+            font-weight: 600;
+            color: #991b1b; /* red-800 */
+        }
+        
+        .code-feedback-incorrect {
+            color: #f87171; /* red-400 */
+            font-style: italic;
+            margin-left: 8px;
+        }
+
+        /* Offset for sticky nav */
+        .section-header {
+            scroll-margin-top: 5rem; /* Adjust based on nav height */
+        }
+    </style>
+    <!-- Preload Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+    <!-- Sticky Navigation -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <span class="font-bold text-lg text-blue-700">Linux Administration</span>
+                <div class="flex space-x-2 sm:space-x-4">
+                    <a href="#section-a-header" class="text-gray-600 hover:text-blue-600 font-medium px-2 py-2 rounded-md transition text-sm sm:text-base">Section A</a>
+                    <a href="#section-b-header" class="text-gray-600 hover:text-blue-600 font-medium px-2 py-2 rounded-md transition text-sm sm:text-base">Section B</a>
+                    <a href="#section-c-header" class="text-gray-600 hover:text-blue-600 font-medium px-2 py-2 rounded-md transition text-sm sm:text-base">Section C</a>
+                    <a href="#section-d-header" class="text-gray-600 hover:text-blue-600 font-medium px-2 py-2 rounded-md transition text-sm sm:text-base">Section D</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-12 pb-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto bg-white p-6 sm:p-8 lg:p-10 rounded-lg shadow-xl">
+            
+            <!-- Exam Header -->
+            <header class="mb-8">
+                <h2 class="text-2xl font-semibold text-blue-700">Linux Administration Mock Exam</h2>
+                <h6 class="text-gray-600 mt-2">Instructions: Answer all questions in each section. 
+                    When finished, click the "Submit Exam" button at the bottom to see your results.<b> NOTE THIS IS NOT THE EXAM, DO NOT CRAM.</b></h6>
+            </header>
+
+            <!-- Exam Content Area -->
+            <div id="exam-form">
+
+                <!-- Section A: Multiple Choice -->
+                <section class="mb-10">
+                    <h2 id="section-a-header" class="section-header text-2xl font-semibold text-gray-700 border-b-2 border-blue-600 pb-2 mb-6">Section A: Multiple Choice Questions</h2>
+                    <div id="section-a-content" class="space-y-6">
+                        <!-- Questions will be injected by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Section B: Application-Based -->
+                <section class="mb-10">
+                    <h2 id="section-b-header" class="section-header text-2xl font-semibold text-gray-700 border-b-2 border-blue-600 pb-2 mb-6">Section B: Application-Based Questions</h2>
+                    <div id="section-b-content" class="space-y-8">
+                        <!-- Questions will be injected by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Section C: True and False -->
+                <section class="mb-10">
+                    <h2 id="section-c-header" class="section-header text-2xl font-semibold text-gray-700 border-b-2 border-blue-600 pb-2 mb-6">Section C: True and False Questions</h2>
+                    <div id="section-c-content" class="space-y-6">
+                        <!-- Questions will be injected by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Section D: Mix and Match -->
+                <section class="mb-10">
+                    <h2 id="section-d-header" class="section-header text-2xl font-semibold text-gray-700 border-b-2 border-blue-600 pb-2 mb-6">Section D: Mix and Match</h2>
+                    <div id="section-d-content" class="space-y-8">
+                        <!-- Questions will be injected by JavaScript -->
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Submission Controls -->
+            <div class="mt-12 text-center">
+                <button id="submit-btn" class="bg-blue-600 text-white font-bold text-lg py-3 px-8 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-200">
+                    Submit Exam
+                </button>
+                <div id="score-container" class="mt-6 text-2xl font-bold text-gray-800"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Results Modal -->
+    <div id="results-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60" onclick="closeModal()">
+        <div class="bg-white max-w-lg w-full mx-4 p-6 rounded-lg shadow-2xl" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold text-gray-800">Your Results</h3>
+                <button onclick="closeModal()" class="text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            <p class="text-gray-700 mb-4">Here is a breakdown of your score. Review the questions above for detailed feedback.</p>
+            <div class="space-y-3">
+                <div class="flex justify-between p-3 bg-gray-50 rounded-md">
+                    <span class="font-semibold text-gray-700">Section A (Multiple Choice):</span>
+                    <span id="score-a" class="font-bold text-blue-600"></span>
+                </div>
+                <div class="flex justify-between p-3 bg-gray-50 rounded-md">
+                    <span class="font-semibold text-gray-700">Section B (Application-Based):</span>
+                    <span id="score-b" class="font-bold text-blue-600"></span>
+                </div>
+                <div class="flex justify-between p-3 bg-gray-50 rounded-md">
+                    <span class="font-semibold text-gray-700">Section C (True/False):</span>
+                    <span id="score-c" class="font-bold text-blue-600"></span>
+                </div>
+                <div class="flex justify-between p-3 bg-gray-50 rounded-md">
+                    <span class="font-semibold text-gray-700">Section D (Mix and Match):</span>
+                    <span id="score-d" class="font-bold text-blue-600"></span>
+                </div>
+                <hr class="my-3"/>
+                <div class="flex justify-between p-4 bg-blue-50 rounded-md">
+                    <span class="font-bold text-xl text-blue-800">Total Score:</span>
+                    <span id="score-total" class="font-bold text-xl text-blue-800"></span>
+                </div>
+            </div>
+            <button onclick="closeModal()" class="w-full mt-6 bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+                Close
+            </button>
+        </div>
+    </div>
+
+
+    <script>
+        // --- Exam Data Store ---
+        // All questions are derived STRICTLY from the 8 provided PPTX notes.
+        const examData = {
+            sectionA: [
+                // ----- SECTION A: Multiple Choice (30 Questions) -----
+                // (Topic 3: Networking)
+                { question: "1. What is the modern command in Linux to view all network interfaces?", options: ["ifconfig", "ip a", "netstat", "net config"], answer: 1 },
+                { question: "2. What configuration system does Ubuntu 17.10+ use for persistent network settings?", options: ["ifupdown", "NetworkManager", "Netplan", "systemd-networkd"], answer: 2 },
+                { question: "3. What is the filename extension for Netplan configuration files?", options: [".conf", ".txt", ".yaml", ".net"], answer: 2 },
+                { question: "4. Which file is checked for hostname-to-IP mappings *before* DNS?", options: ["/etc/dns.conf", "/etc/netplan/hosts", "/etc/hosts", "/etc/hostname"], answer: 2 },
+                { question: "5. What command is used to test network reachability by sending ICMP requests?", options: ["ping", "netstat", "ifconfig", "ip route"], answer: 0 },
+                // (Topic 4: Samba, Wine, Remmina)
+                { question: "6. What is the core function of Samba?", options: ["To run Windows applications on Linux", "To provide remote desktop access to Windows", "To integrate Linux into a Windows network for file/print sharing", "To configure network interfaces"], answer: 2 },
+                { question: "7. What is the name of the main Samba configuration file?", options: ["/etc/samba.conf", "/etc/smb.conf", "/etc/samba/smb.conf", "/etc/smb/config.yaml"], answer: 2 },
+                { question: "8. Which command is used to validate the `smb.conf` file?", options: ["smb-check", "testparm", "samba-lint", "conf-test"], answer: 1 },
+                { question: "9. Which command is used to add a Linux user to the Samba password database?", options: ["samba-user -a", "smbpasswd -a", "useradd -samba", "samba adduser"], answer: 1 },
+                { question: "10. What tool is noted as being built-in to Ubuntu for RDP remote access?", options: ["Wine", "Samba", "VNC", "Remmina"], answer: 3 },
+                { question: "11. What is Wine described as in the notes?", options: ["A Windows emulator", "A compatibility layer", "A virtual machine", "A file sharing service"], answer: 1 },
+                // (Topic 5: Printing)
+                { question: "12. What does CUPS stand for?", options: ["Common UNIX Printing System", "Configurable User Print Server", "Central Utility for Printing Services", "Common User Printing Standard"], answer: 0 },
+                { question: "13. What is the default port for the CUPS web-based configuration?", options: ["80", "443", "631", "8080"], answer: 2 },
+                { question: "14. To manage printers, a user must be part of which group?", options: ["admin", "sudo", "print", "lpadmin"], answer: 3 },
+                { question: "15. Which command is used to view the current print queue?", options: ["lpr", "lpstat -v", "lprm", "lpq"], answer: 3 },
+                { question: "16. Which command is used to cancel a print job?", options: ["lpq", "lpr", "lprm", "lpdel"], answer: 2 },
+                // (Topic 6: Shell Scripting)
+                { question: "17. What is the first line of a bash script that tells the OS which interpreter to use?", options: ["//bin/bash", "#!/bin/bash", "<?bash", "START BASH"], answer: 1 },
+                { question: "18. Which command is used to make a shell script executable?", options: ["chmod +x", "chown exec", "exec", "run"], answer: 0 },
+                { question: "19. What daemon is used to run tasks at scheduled intervals?", options: ["systemd", "init", "cron", "bash"], answer: 2 },
+                { question: "20. What does the 'Sticky Bit' (`chmod +t`) do on a directory?", options: ["Makes all files in it executable", "Prevents users from deleting others' files", "Makes the directory read-only", "Hides the directory"], answer: 1 },
+                { question: "21. Which command is used to enforce password and account policies, like expiration dates?", options: ["passwd", "usermod", "chage", "chmod"], answer: 2 },
+                // (Topic 7: UFW)
+                { question: "22. What does UFW stand for?", options: ["User-Friendly Wires", "Unix Firewall", "Uncomplicated Firewall", "Universal Firewall"], answer: 2 },
+                { question: "23. What is the most secure default policy for UFW?", options: ["sudo ufw default allow", "sudo ufw default deny", "sudo ufw default reject", "sudo ufw default open"], answer: 1 },
+                // (Topic 8: Security)
+                { question: "24. What is the recommended command to safely edit the `/etc/sudoers` file?", options: ["nano /etc/sudoers", "vi /etc/sudoers", "sudoedit", "visudo"], answer: 3 },
+                { question: "25. Which file should be edited to disable password authentication for SSH?", options: ["/etc/ssh/ssh.conf", "/etc/ssh/sshd_config", "/etc/ssh_config", "/etc/ssh/auth.conf"], answer: 1 },
+                { question: "26. What tool is designed to ban IPs after repeated failed authentication attempts?", options: ["ufw", "AppArmor", "AIDE", "fail2ban"], answer: 3 },
+                { question: "27. What is AIDE used for?", options: ["Banning IPs", "File integrity checking", "Application-level firewalking", "Disk encryption"], answer: 1 },
+                { question: "28. What is the MAC (Mandatory Access Control) system used on Ubuntu?", options: ["SELinux", "fail2ban", "AppArmor", "LUKS"], answer: 2 },
+                // (Topic 9: Databases)
+                { question: "29. Which of these is NOT part of the ACID acronym for data integrity?", options: ["Atomicity", "Consistency", "Durability", "Correctness"], answer: 3 },
+                { question: "30. What is the term for what happens when data is locked while being accessed to prevent corruption?", options: ["Data-locking", "Isolation", "Atomicity", "Durability"], answer: 0 }
+            ],
+            sectionB: [
+                // ----- SECTION B: Application-Based (25 Questions) -----
+                { id: "b1", scenario: "1. (Topic 3) View all network interfaces using the modern 'ip' command.", code: "sudo ip __", answers: ["a"] },
+                { id: "b2", scenario: "2. (Topic 3) Set a temporary IP for `enp0s3` and bring the interface 'up'.", code: "sudo ifconfig enp0s3 10.0.0.10 __", answers: ["up"] },
+                { id: "b3", scenario: "3. (Topic 3) After editing a Netplan `.yaml` file, what command do you run to apply the changes?", code: "sudo netplan __", answers: ["apply"] },
+                { id: "b4", scenario: "4. (Topic 3) Send 5 ICMP packets to `google.com`.", code: "ping __ 5 google.com", answers: ["-c"] },
+                { id: "b5", scenario: "5. (Topic 4) Install the Samba package.", code: "sudo apt install __", answers: ["samba"] },
+                { id: "b6", scenario: "6. (Topic 4) Check the syntax of your Samba configuration file.", code: "__", answers: ["testparm"] },
+                { id: "b7", scenario: "7. (Topic 4) Add a new user 'thendo' to the Samba password database.", code: "sudo __ -a thendo", answers: ["smbpasswd"] },
+                { id: "b8", scenario: "8. (Topic 4) List the available shares on a Windows server named 'WIN-SRV'.", code: "smbclient -L //WIN-SRV -U username", answers: [] }, // No blank, just showing the command
+                { id: "b9", scenario: "9. (Topic 4) Initialize the Wine environment for the first time.", code: "__", answers: ["winecfg"] },
+                { id: "b10", scenario: "10. (Topic 5) Install the CUPS printing system.", code: "sudo apt install __", answers: ["cups"] },
+                { id: "b11", scenario: "11. (Topic 5) Add the user 'alice' to the printer administration group.", code: "sudo adduser alice __", answers: ["lpadmin"] },
+                { id: "b12", scenario: "12. (Topic 5) Print a file named `test.txt` from the command line.", code: "__ printtest.txt", answers: ["lpr"] },
+                { id: "b13", scenario: "13. (Topic 5) View all print jobs in the queue.", code: "__", answers: ["lpq"] },
+                { id: "b14", scenario: "14. (Topic 5) Restart the Samba (smbd) service after changing the config.", code: "sudo systemctl restart __", answers: ["smbd"] },
+                { id: "b15", scenario: "15. (Topic 6) Make a script named `myscript.sh` executable.", code: "__ +x myscript.sh", answers: ["chmod"] },
+                { id: "b16", scenario: "16. (Topic 6) Edit the cron jobs for the root user.", code: "sudo __ -e", answers: ["crontab"] },
+                { id: "b17", scenario: "17. (Topic 6) Create a new user 'jdoe' with a home directory and bash shell.", code: "sudo useradd -m -s /bin/bash __", answers: ["jdoe"] },
+                { id: "b18", scenario: "18. (Topic 6) Apply the 'sticky bit' to a directory named `/shared`.", code: "sudo chmod __ /shared", answers: ["+t"] },
+                { id: "b19", scenario: "19. (Topic 7) Enable the Uncomplicated Firewall.", code: "sudo ufw __", answers: ["enable"] },
+                { id: "b20", scenario: "20. (Topic 7) Set the default incoming policy to deny.", code: "sudo ufw default __ incoming", answers: ["deny"] },
+                { id: "b21", scenario: "21. (Topic 8) Create a new group called 'devs'.", code: "sudo __ devs", answers: ["groupadd"] },
+                { id: "b22", scenario: "22. (Topic 8) Change the owner of `/srv/app` to 'alice' and group to 'devs'.", code: "sudo __ alice:devs /srv/app", answers: ["chown"] },
+                { id: "b23", scenario: "23. (Topic 8) Generate a new SSH key pair of type `ed25519`.", code: "__ -t ed25519", answers: ["ssh-keygen"] },
+                { id: "b24", scenario: "24. (Topic 8) Check the status of AppArmor.", code: "sudo __-status", answers: ["aa"] },
+                { id: "b25", scenario: "25. (Topic 9) Install the MySQL server package.", code: "sudo apt install __", answers: ["mysql-server"] }
+            ],
+            sectionC: [
+                // ----- SECTION C: True and False (30 Questions) -----
+                { question: "1. (Topic 3) The `ifconfig` command is the most modern tool for network configuration.", answer: false },
+                { question: "2. (Topic 3) 'Predictable Names' like `enp0s3` were introduced because `eth0` could change on reboot.", answer: true },
+                { question: "3. (Topic 3) The loopback interface `lo` has the IP address 127.0.0.1.", answer: true },
+                { question: "4. (Topic 3) `sudo ifconfig enp0s3 10.0.0.1 up` creates a permanent IP configuration.", answer: false },
+                { question: "5. (Topic 3) Netplan configurations are stored in `/etc/netplan/*.conf` files.", answer: false },
+                { question: "6. (Topic 3) The `/etc/hosts` file is checked *after* DNS is queried.", answer: false },
+                { question: "7. (Topic 4) Samba allows Linux to act as a Domain Controller in a Windows network.", answer: true },
+                { question: "8. (Topic 4) The `%U` variable in `smb.conf` substitutes the client's IP address.", answer: false },
+                { question: "9. (Topic 4) To access a Samba share, a user must exist as a Linux user *first*.", answer: true },
+                { question: "10. (Topic 4) Remmina uses the VNC protocol by default to connect to Windows.", answer: false },
+                { question: "11. (Topic 4) Wine is an emulator that runs a full Windows OS.", answer: false },
+                { question: "12. (Topic 4) `winecfg` is the command to install new Windows applications.", answer: false },
+                { question: "13. (Topic 5) CUPS is the default printing system in most modern Linux distributions.", answer: true },
+                { question: "14. (Topic 5) CUPS uses the SMB protocol for network printing.", answer: false },
+                { question: "15. (Topic 5) The `lpadmin` group gives users permission to manage printers.", answer: true },
+                { question: "16. (Topic 5) The `lpr` command lists all installed printers.", answer: false },
+                { question: "17. (Topic 5) To share a Linux printer with Windows, Samba is required.", answer: true },
+                { question: "18. (Topic 6) The 'Shebang' (`#!`) is an optional comment in shell scripts.", answer: false },
+                { question: "19. (Topic 6) `chmod +x` removes executable permissions from a file.", answer: false },
+                { question: "20. (Topic 6) A crontab entry of `0 * * * *` means 'run every minute'.", answer: false },
+                { question: "21. (Topic 6) `sudo useradd -m jdoe` creates the user `jdoe` *without* a home directory.", answer: false },
+                { question: "22. (Topic 6) `chmod o-rx /home/jdoe` removes read and execute permissions for 'others'.", answer: true },
+                { question: "23. (Topic 7) UFW is designed to be a simple frontend for `iptables`.", answer: true },
+                { question: "24. (Topic 7) `sudo ufw default deny` is the recommended default policy for security.", answer: true },
+                { question: "25. (Topic 8) `sudo usermod -L alice` deletes the user 'alice'.", answer: false },
+                { question: "26. (Topic 8) `chmod 750` gives the owner `rwx`, the group `rx`, and others no permissions.", answer: true },
+                { question: "27. (Topic 8) `sshd_config` is the configuration file for the SSH *client*.", answer: false },
+                { question: "28. (Topic 8) SELinux is the default MAC system on Ubuntu.", answer: false },
+                { question: "29. (Topic 9) The 'C' in ACID stands for 'Consistency'.", answer: true },
+                { question: "30. (Topic 9) SQL commands are case-sensitive.", answer: false }
+            ],
+            sectionD: {
+                // ----- SECTION D: Mix and Match (25 Pairs) -----
+                matching: [
+                    { id: "d1", question: "1. `ifconfig`", answer: "L" },
+                    { id: "d2", question: "2. Netplan", answer: "N" },
+                    { id: "d3", question: "3. `/etc/hosts`", answer: "C" },
+                    { id: "d4", question: "4. Samba", answer: "R" },
+                    { id: "d5", question: "5. `testparm`", answer: "T" },
+                    { id: "d6", question: "6. Remmina", answer: "F" },
+                    { id: "d7", question: "7. Wine", answer: "J" },
+                    { id: "d8", question: "8. CUPS", answer: "X" },
+                    { id: "d9", question: "9. `lpadmin`", answer: "P" },
+                    { id: "d10", question: "10. `lpq`", answer: "S" },
+                    { id: "d11", question: "11. `lpr`", answer: "D" },
+                    { id: "d12", question: "12. `#!/bin/bash`", answer: "A" },
+                    { id: "d13", question: "13. `chmod +x`", answer: "O" },
+                    { id: "d14", question: "14. `cron`", answer: "W" },
+                    { id: "d15", question: "15. Sticky Bit (`+t`)", answer: "K" },
+                    { id: "d16", question: "16. `chage`", answer: "H" },
+                    { id: "d17", question: "17. UFW", answer: "V" },
+                    { id: "d18", question: "18. `visudo`", answer: "B" },
+                    { id: "d19", question: "19. `ssh-keygen`", answer: "Y" },
+                    { id: "d20", question: "20. `fail2ban`", answer: "Q" },
+                    { id: "d21", question: "21. AppArmor", answer: "E" },
+                    { id: "d22", question: "22. LUKS", answer: "I" },
+                    { id: "d23", question: "23. ACID", answer: "U" },
+                    { id: "d24", question: "24. `CREATE DATABASE`", answer: "G" },
+                    { id: "d25", question: "25. Incremental Backup", answer: "M" }
+                ],
+                definitions: [
+                    { letter: "A", text: "The 'Shebang' that specifies the bash interpreter." },
+                    { letter: "B", text: "Safe command to edit the `/etc/sudoers` file." },
+                    { letter: "C", text: "Local file for hostname-to-IP resolution." },
+                    { letter: "D", text: "Command to print a file from the terminal." },
+                    { letter: "E", text: "Ubuntu's default Mandatory Access Control (MAC) system." },
+                    { letter: "F", text: "RDP client used to remotely access Windows desktops." },
+                    { letter: "G", text: "SQL command to create a new database." },
+                    { letter: "H", text: "Command to manage password and account expiration policies." },
+                    { letter: "I", text: "Tool used for full-disk encryption (e.g., `cryptsetup`)." },
+                    { letter: "J", text: "A compatibility layer to run Windows apps on Linux." },
+                    { letter: "K", text: "Secures shared directories; prevents users from deleting others' files." },
+                    { letter: "L", text: "Traditional command to view and configure network interfaces." },
+                    { letter: "M", text: "Backup type that only saves changes since the last backup." },
+                    { letter: "N", text: "Modern system for network configuration in Ubuntu using `.yaml` files." },
+                    { letter: "O", text: "Command to make a file executable." },
+                    { letter: "P", text: "The group required for users to manage printers." },
+                    { letter: "Q", text: "Bans IPs after repeated failed login attempts." },
+                    { letter: "R", text: "Provides SMB/CIFS file and print services to Windows clients." },
+                    { letter: "S", text: "Command to view the print queue." },
+                    { letter: "T", text: "Command to validate the `smb.conf` file." },
+                    { letter: "U", text: "Acronym for database integrity (Atomicity, Consistency...)." },
+                    { letter: "V", text: "Uncomplicated Firewall, a frontend for iptables." },
+                    { letter: "W", text: "Daemon that runs tasks at scheduled intervals via `crontab`." },
+                    { letter: "X", text: "The default printing system in Linux (Common UNIX...)." },
+                    { letter: "Y", text: "Command to create SSH public and private keys." }
+                ]
+            }
+        };
+
+
+        // --- Global Variables ---
+        const score = {
+            a: 0,
+            b: 0,
+            c: 0,
+            d: 0,
+            total: 0
+        };
+        const totals = {
+            a: examData.sectionA.length,
+            b: 0, // Will be calculated dynamically
+            c: examData.sectionC.length,
+            d: 0  // Will be calculated dynamically
+        };
+
+        // --- Exam Rendering Functions ---
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderSectionA();
+            renderSectionB();
+            renderSectionC();
+            renderSectionD();
+            
+            document.getElementById('submit-btn').addEventListener('click', submitExam);
+        });
+
+        function renderSectionA() {
+            const container = document.getElementById('section-a-content');
+            let html = '';
+            examData.sectionA.forEach((q, index) => {
+                html += `
+                    <div class="question-block p-4 bg-gray-50 rounded-lg border border-gray-200" id="qA${index}-block">
+                        <p class="font-semibold text-gray-800 mb-3">${q.question}</p>
+                        <div class="space-y-2">
+                            ${q.options.map((opt, i) => `
+                                <div>
+                                    <input type="radio" name="qA${index}" id="qA${index}o${i}" value="${i}" class="form-radio text-blue-600">
+                                    <label for="qA${index}o${i}" class="ml-2 text-gray-700">
+                                        <span id="qA${index}o${i}-label">${opt}</span>
+                                    </label>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function renderSectionB() {
+            // Section B is Application Based (Fill-in-the-Code)
+            const container = document.getElementById('section-b-content');
+            const data = examData.sectionB;
+            let questionsHtml = data.map((q, qIndex) => {
+                let inputIndex = 0;
+                // Handle commands that have no blank to fill
+                if (!q.code.includes("__BLANK__")) {
+                    return `
+                        <div class="question-block p-4 bg-gray-50 rounded-lg border border-gray-200" id="${q.id}-block">
+                            <p class="text-gray-800 font-medium mb-2">${q.scenario}</p>
+                            <pre class="bg-gray-800 text-white p-4 rounded-md overflow-x-auto"><code class="font-mono">${q.code}</code></pre>
+                            <p class="text-sm text-gray-500 mt-2 italic">(This question is for command recognition)</p>
+                        </div>
+                    `;
+                }
+                
+                const codeText = q.code.replace(/__BLANK__/g, () => {
+                    const id = `${q.id}-blank${inputIndex++}`;
+                    return `<input type="text" id="${id}" class="code-input"> <span id="${id}-feedback" class="feedback-span"></span>`;
+                });
+                
+                return `
+                    <div class="question-block p-4 bg-gray-50 rounded-lg border border-gray-200" id="${q.id}-block">
+                        <p class="text-gray-800 font-medium mb-2">${q.scenario}</p>
+                        <pre class="bg-gray-800 text-white p-4 rounded-md overflow-x-auto"><code class="font-mono">${codeText}</code></pre>
+                    </div>
+                `;
+            }).join('');
+            
+            container.innerHTML = `<div class="space-y-4">${questionsHtml}</div>`;
+        }
+
+        function renderSectionC() {
+            // Section C is True/False
+            const container = document.getElementById('section-c-content');
+            let html = '';
+            examData.sectionC.forEach((q, index) => {
+                html += `
+                    <div class="question-block p-4 bg-gray-50 rounded-lg border border-gray-200" id="qC${index}-block">
+                        <p class="font-semibold text-gray-800 mb-3">${q.question}</p>
+                        <div class="space-x-4">
+                            <input type="radio" name="qC${index}" id="qC${index}true" value="true" class="form-radio text-blue-600">
+                            <label for="qC${index}true" class="ml-1 text-gray-700">
+                                <span id="qC${index}true-label">True</span>
+                            </label>
+                            
+                            <input type="radio" name="qC${index}" id="qC${index}false" value="false" class="form-radio text-blue-600">
+                            <label for="qC${index}false" class="ml-1 text-gray-700">
+                                <span id="qC${index}false-label">False</span>
+                            </label>
+                        </div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function renderSectionD() {
+            // Section D is Mix and Match
+            const container = document.getElementById('section-d-content');
+            const data = examData.sectionD;
+            let definitionsHtml = data.definitions.map(def => `
+                <li class="flex text-sm">
+                    <span class="font-bold w-6 text-gray-800">${def.letter}.</span>
+                    <span class="text-gray-700">${def.text}</span>
+                </li>
+            `).join('');
+
+            let termsHtml = data.matching.map(term => `
+                <div class="flex items-center space-x-2">
+                    <input type="text" id="${term.id}" class="form-input w-12 text-center font-bold uppercase border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" maxlength="1">
+                    <label for="${term.id}" class="text-gray-800">${term.question}</label>
+                    <span id="${term.id}-feedback" class="feedback-span"></span>
+                </div>
+            `).join('');
+
+            container.innerHTML = `
+                <div class="question-block p-4 bg-gray-50 rounded-lg border border-gray-200" id="section-d-matching-block">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Match the term to its definition</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Terms Column -->
+                        <div class="space-y-3">
+                            ${termsHtml}
+                        </div>
+                        <!-- Definitions Column -->
+                        <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                            <ul class="space-y-2">
+                                ${definitionsHtml}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- Grading and Modal Functions ---
+
+        function submitExam() {
+            resetFeedback();
+            
+            gradeSectionA();
+            gradeSectionB();
+            gradeSectionC();
+            gradeSectionD();
+            
+            const totalScore = score.a + score.b + score.c + score.d;
+            const totalPossible = totals.a + totals.b + totals.c + totals.d;
+            
+            document.getElementById('score-container').innerText = `Your Total Score: ${totalScore} / ${totalPossible}`;
+            
+            // Show modal
+            document.getElementById('score-a').innerText = `${score.a} / ${totals.a}`;
+            document.getElementById('score-b').innerText = `${score.b} / ${totals.b}`;
+            document.getElementById('score-c').innerText = `${score.c} / ${totals.c}`;
+            document.getElementById('score-d').innerText = `${score.d} / ${totals.d}`;
+            document.getElementById('score-total').innerText = `${totalScore} / ${totalPossible}`;
+            document.getElementById('results-modal').classList.remove('hidden');
+            document.getElementById('results-modal').classList.add('flex');
+        }
+
+        function resetFeedback() {
+            score.a = 0;
+            score.b = 0;
+            score.c = 0;
+            score.d = 0;
+            totals.b = 0; // Will be recalculated
+            totals.d = 0; // Will be recalculated
+            
+            const blocks = document.querySelectorAll('.question-block');
+            blocks.forEach(b => {
+                b.classList.remove('correct', 'incorrect');
+            });
+            
+            const inputs = document.querySelectorAll('input.correct, input.incorrect');
+            inputs.forEach(i => {
+                i.classList.remove('correct', 'incorrect');
+            });
+
+            const labels = document.querySelectorAll('.label-correct, .label-incorrect');
+            labels.forEach(l => {
+                l.classList.remove('label-correct', 'label-incorrect');
+            });
+            
+            const feedbackSpans = document.querySelectorAll('.feedback-span');
+            feedbackSpans.forEach(s => {
+                s.innerHTML = '';
+            });
+        }
+        
+        function gradeSectionA() {
+            examData.sectionA.forEach((q, index) => {
+                const block = document.getElementById(`qA${index}-block`);
+                const selected = document.querySelector(`input[name="qA${index}"]:checked`);
+                const correctAnswerIndex = q.answer;
+                
+                document.getElementById(`qA${index}o${correctAnswerIndex}-label`).classList.add('label-correct');
+
+                if (selected) {
+                    const selectedAnswerIndex = parseInt(selected.value);
+                    if (selectedAnswerIndex === correctAnswerIndex) {
+                        score.a++;
+                        block.classList.add('correct');
+                    } else {
+                        block.classList.add('incorrect');
+                        document.getElementById(`qA${index}o${selectedAnswerIndex}-label`).classList.add('label-incorrect');
+                    }
+                } else {
+                    block.classList.add('incorrect');
+                }
+            });
+        }
+        
+        function gradeSectionB() {
+            // Grade Section B (Application Based - Fill-in-Code)
+            examData.sectionB.forEach(q => {
+                 // Only grade questions that have blanks
+                if (!q.code.includes("__BLANK__")) {
+                    totals.b++; // Still count it as a question
+                    score.b++;  // Auto-pass (it's for recognition)
+                    document.getElementById(`${q.id}-block`).classList.add('correct');
+                    return; 
+                }
+
+                q.answers.forEach((answer, index) => {
+                    totals.b++;
+                    const input = document.getElementById(`${q.id}-blank${index}`);
+                    const feedback = document.getElementById(`${q.id}-blank${index}-feedback`);
+                    const value = input.value.trim();
+                    
+                    if (value.toLowerCase() === answer.toLowerCase()) {
+                        score.b++;
+                        input.classList.add('correct');
+                        feedback.innerHTML = `<span class="code-feedback-correct"></span>`;
+                    } else {
+                        input.classList.add('incorrect');
+                        feedback.innerHTML = `<span class="code-feedback-incorrect">(Correct: ${answer})</span>`;
+                    }
+                });
+
+                // Mark the whole block
+                const block = document.getElementById(`${q.id}-block`);
+                if (block.querySelector('input.incorrect')) {
+                    block.classList.add('incorrect');
+                } else {
+                    block.classList.add('correct');
+                }
+            });
+        }
+
+        function gradeSectionC() {
+             // Grade Section C (True/False)
+            examData.sectionC.forEach((q, index) => {
+                const block = document.getElementById(`qC${index}-block`);
+                const selected = document.querySelector(`input[name="qC${index}"]:checked`);
+                const correctAnswer = q.answer;
+                
+                document.getElementById(`qC${index}${correctAnswer}-label`).classList.add('label-correct');
+                
+                if (selected) {
+                    const selectedValue = selected.value === 'true';
+                    if (selectedValue === correctAnswer) {
+                        score.c++;
+                        block.classList.add('correct');
+                    } else {
+                        block.classList.add('incorrect');
+                        document.getElementById(`qC${index}${selectedValue}-label`).classList.add('label-incorrect');
+                    }
+                } else {
+                    block.classList.add('incorrect');
+                }
+            });
+        }
+
+        function gradeSectionD() {
+            // Grade Section D (Mix and Match)
+            let allCorrect = true;
+            examData.sectionD.matching.forEach(term => {
+                totals.d++;
+                const input = document.getElementById(term.id);
+                const feedback = document.getElementById(`${term.id}-feedback`);
+                const value = input.value.trim().toUpperCase();
+                
+                if (value === term.answer) {
+                    score.d++;
+                    input.classList.add('correct');
+                } else {
+                    allCorrect = false;
+                    input.classList.add('incorrect');
+                    feedback.innerHTML = `<span class="feedback-text-incorrect">(Correct: ${term.answer})</span>`;
+                }
+            });
+
+            const block = document.getElementById('section-d-matching-block');
+            if (allCorrect) {
+                block.classList.add('correct');
+            } else {
+                block.classList.add('incorrect');
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('results-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+    </script>
+
+</body>
+</html>
